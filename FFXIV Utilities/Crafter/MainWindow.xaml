@@ -1,0 +1,33 @@
+﻿<Window x:Class="Crafter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Crafter"
+        xmlns:wpf="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Greedy Crafter" Closing="Window_Closing" SizeToContent="WidthAndHeight" ResizeMode="NoResize">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="4">
+            <Label Content="Pattern:" />
+            <ComboBox x:Name="PatternName" ItemsSource="{Binding Patterns}" SelectedItem="{Binding SelectedPattern}" DisplayMemberPath="Name" />
+            <Label Content="Collectable:" />
+            <CheckBox IsChecked="{Binding Collectible}" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4">
+            <Label Content="Count:" />
+            <wpf:IntegerUpDown Width="200" Margin="0,0,4,0" Value="{Binding Count}" />
+            <Button x:Name="GoButton" Click="Button_Click" Content="Go" />
+        </StackPanel>
+
+        <TextBox x:Name="Output" Grid.Row="2" Margin="4" BorderThickness="1" MaxLines="10" VerticalScrollBarVisibility="Auto" />
+    </Grid>
+</Window>
